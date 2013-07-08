@@ -1,6 +1,6 @@
 # Capybara::Angular
 
-TODO: Write a gem description
+Capybara API that knows how to wait for Angular in end to end specs.
 
 ## Installation
 
@@ -8,17 +8,9 @@ Add this line to your application's Gemfile:
 
     gem 'capybara-angular'
 
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install capybara-angular
-
 ## Usage
 
-TODO: Write usage instructions here
+Use it as you would use regular Capybara API, however this time, you won't facy any race conditions when working with AngularJS applications
 
 ## Contributing
 

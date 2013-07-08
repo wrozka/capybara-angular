@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = Capybara::Angular::VERSION
   spec.authors       = ["Pawel Pierzchala"]
   spec.email         = ["pawelpierzchala@gmail.com"]
-  spec.description   = %q{Capybara API that knows how to wait for Angular in end to end specs.}
+  spec.description   = %q{Capybara API that knows how to wait for Angular in end to end specs}
   spec.summary       = %q{Stable Capybara API for AngularJS applications}
   spec.homepage      = ""
   spec.license       = "MIT"
