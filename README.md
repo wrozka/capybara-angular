@@ -10,7 +10,7 @@ Add this line to your application's Gemfile:
 
 ## Usage
 
-Use it as you would use regular Capybara API, however this time, you won't facy any race conditions when working with AngularJS applications
+Use it as you would use regular Capybara API, however this time, you won't face any race conditions when working with AngularJS applications
 
 ## Contributing
 
