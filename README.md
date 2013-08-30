@@ -10,7 +10,15 @@ Add this line to your application's Gemfile:
 
 ## Usage
 
-Use it as you would use regular Capybara API, however this time, you won't face any race conditions when working with AngularJS applications
+Use it as you would use regular Capybara API, however this time, you won't face any race conditions when working with AngularJS applications.
+
+```ruby
+include Capybara::Angular::DSL
+```
+
+## Limitations
+
+At the moment it works with AngularJS applications initialized with `ng-app`.
 
 ## Contributing
 
