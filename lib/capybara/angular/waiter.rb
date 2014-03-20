@@ -15,6 +15,7 @@ module Capybara
         start = Time.now
         until ready?
           timeout! if timeout?(start)
+          setup_ready if page_reloaded_on_wait?
           sleep(0.01)
         end
       end
@@ -53,6 +54,10 @@ module Capybara
             });
           });
         JS
+      end
+      
+      def page_reloaded_on_wait?
+        page.evaluate_script("window.angularReady === undefined")
       end
     end
   end
