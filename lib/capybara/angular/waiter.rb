@@ -35,13 +35,12 @@ module Capybara
       end
 
       def angular_app?
-        begin
-          js = "(typeof angular !== 'undefined') && "
-          js += "angular.element(document.querySelector('[ng-app], [data-ng-app]')).length > 0"
-          page.evaluate_script js
-        rescue Capybara::NotSupportedByDriverError
-          false
-        end
+        js = "(typeof angular !== 'undefined') && "
+        js += "angular.element(document.querySelector('[ng-app], [data-ng-app]')).length > 0"
+        page.evaluate_script js
+
+      rescue Capybara::NotSupportedByDriverError
+        false
       end
 
       def setup_ready
