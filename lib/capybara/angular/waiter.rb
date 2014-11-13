@@ -23,7 +23,7 @@ module Capybara
       private
 
       def timeout?(start)
-        Time.now - start > Capybara.default_wait_time
+        Time.now - start > Capybara::Angular.default_wait_time
       end
 
       def timeout!
@@ -57,7 +57,7 @@ module Capybara
           });
         JS
       end
-      
+
       def page_reloaded_on_wait?
         page.evaluate_script("window.angularReady === undefined")
       end
