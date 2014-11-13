@@ -1,4 +1,6 @@
 # Capybara::Angular
+[![Build Status](https://travis-ci.org/wrozka/capybara-angular.svg?branch=master)](https://travis-ci.org/wrozka/capybara-angular)
+[![Gem Version](https://badge.fury.io/rb/capybara-angular.svg)](http://badge.fury.io/rb/capybara-angular)
 
 Capybara API that knows how to wait for Angular in end to end specs.
 
