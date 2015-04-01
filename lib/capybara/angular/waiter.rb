@@ -51,14 +51,12 @@ module Capybara
           angular.element(document).ready(function() {
             var app = angular.element(document.querySelector('[ng-app], [data-ng-app]'));
             var injector = app.injector();
-            injector.invoke(function($browser) {
-              if ($browser.outstandingRequestCount > 0) {
-                window.angularReady = false;
-              }
+            injector.invoke(['$browser', function($browser) {
+              window.angularReady = false;
               $browser.notifyWhenNoOutstandingRequests(function() {
                 window.angularReady = true;
               });
-            });
+            }]);
           });
         JS
       end
