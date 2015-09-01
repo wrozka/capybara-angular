@@ -6,8 +6,8 @@ require 'capybara/angular'
 
 Capybara.default_driver = :poltergeist
 Capybara.app = Rack::Directory.new('spec/public')
-Capybara.default_wait_time = 2
-Capybara::Angular.default_wait_time = 10
+Capybara.default_max_wait_time = 2
+Capybara::Angular.default_max_wait_time = 10
 
 feature 'Waiting for angular' do
   include Capybara::Angular::DSL
