@@ -51,14 +51,30 @@ module Capybara
           var el = document.querySelector('body')
           window.angularReady = false;
 
-          if (angular.getTestability) {
-            angular.getTestability(el).whenStable(function() { window.angularReady = true; });
-          } else {
-            var $browser = angular.element(el).injector().get('$browser');
-
-            if ($browser.outstandingRequestCount > 0) { window.angularReady = false; }
-            $browser.notifyWhenNoOutstandingRequests(function() { window.angularReady = true; });
+          function ready(fn) {
+            if (document.readyState != 'loading'){
+              fn();
+            } else if (document.addEventListener) {
+              document.addEventListener('DOMContentLoaded', fn);
+            } else {
+              document.attachEvent('onreadystatechange', function() {
+                if (document.readyState != 'loading')
+                  fn();
+              });
+            }
           }
+
+          ready(function () {
+            if (angular.getTestability) {
+              angular.getTestability(el).whenStable(function() { window.angularReady = true; });
+            } else {
+              var $browser = angular.element(el).injector().get('$browser');
+
+              if ($browser.outstandingRequestCount > 0) { window.angularReady = false; }
+              $browser.notifyWhenNoOutstandingRequests(function() { window.angularReady = true; });
+            }
+          });
+
         JS
       end
 
