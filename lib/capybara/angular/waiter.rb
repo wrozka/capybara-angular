@@ -30,7 +30,7 @@ module Capybara
       end
 
       def timeout!
-        raise TimeoutError.new("timeout while waiting for angular")
+        raise Timeout::Error.new("timeout while waiting for angular")
       end
 
       def ready?
