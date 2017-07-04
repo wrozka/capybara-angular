@@ -18,6 +18,13 @@ Use it as you would use regular Capybara API, however this time, you won't face 
 include Capybara::Angular::DSL
 ```
 
+If you need to run some code without caring about AngularJS, you can use `ignoring_angular` like this:
+```ruby
+ignoring_angular do
+  # Your AngularJS agnostic code goes here
+end
+```
+
 ## Limitations
 
 At the moment it works with AngularJS applications initialized with `ng-app`.
