@@ -47,18 +47,29 @@ module Capybara
 
       def setup_ready
         page.execute_script <<-JS
-          var el = document.querySelector('[ng-app], [data-ng-app]') || document.querySelector('body');
+          var el = document.querySelector('[ng-app], [data-ng-app]') || document.body;
+          var injector = angular.element(el).injector();
 
           window.angularReady = false;
 
-          if (angular.getTestability) {
-            angular.getTestability(el).whenStable(function() { window.angularReady = true; });
-          } else {
-            var $browser = angular.element(el).injector().get('$browser');
-
-            if ($browser.outstandingRequestCount > 0) { window.angularReady = false; }
-            $browser.notifyWhenNoOutstandingRequests(function() { window.angularReady = true; });
+          function capybaraAngularSetupReady() {
+            try {
+              angular.getTestability(el).whenStable(function() { window.angularReady = true; });
+            } catch(error) {
+              var $browser = injector.get('$browser');
+              if ($browser.outstandingRequestCount > 0) { window.angularReady = false; }
+              $browser.notifyWhenNoOutstandingRequests(function() { window.angularReady = true; });
+            } 
           }
+
+          if (injector === void 0) {
+            var tid = setInterval(function() {
+              injector = angular.element(el).injector();
+              if (injector === void 0) return;
+              clearInterval(tid);
+              capybaraAngularSetupReady();
+            }, 100);
+          } else capybaraAngularSetupReady();
         JS
       end
 

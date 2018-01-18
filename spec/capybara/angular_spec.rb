@@ -17,6 +17,11 @@ feature 'Waiting for angular' do
     timeout_page_should_have_waited
   end
 
+  scenario 'when manually bootstrapping an angular application after a delay' do
+    open_delayed_manual_bootstrap_page
+    timeout_page_should_have_waited
+  end
+
   scenario 'when using ng-app to bootstrap an application' do
     open_ng_app_bootstrap_page
     timeout_page_should_have_waited
@@ -29,6 +34,10 @@ feature 'Waiting for angular' do
 
   def open_manual_bootstrap_page
     visit '/manual.html'
+  end
+
+  def open_delayed_manual_bootstrap_page
+    visit '/delayed-manual.html'
   end
 
   def open_ng_app_bootstrap_page
