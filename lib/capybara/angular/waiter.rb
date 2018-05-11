@@ -38,8 +38,28 @@ module Capybara
       end
 
       def angular_app?
-        js = '!!window.angular'
-        page.evaluate_script js
+        page.evaluate_script <<-JS
+          (function() {
+            if (!window.angular) {
+              return false;
+            }
+
+            var el = document.querySelector('[ng-app], [data-ng-app]') || document.querySelector('body');
+            if (!el) {
+              return false;
+            }
+
+            try {
+              if (angular.getTestability) {
+                return !!angular.getTestability(el);
+              } else {
+                return !!angular.element(el).injector();
+              }
+            } catch(err) {
+              return false;
+            }
+          }());
+        JS
 
       rescue Capybara::NotSupportedByDriverError
         false
