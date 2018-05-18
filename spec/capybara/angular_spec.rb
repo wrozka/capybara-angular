@@ -27,6 +27,16 @@ feature 'Waiting for angular' do
     timeout_page_should_have_waited
   end
 
+  scenario 'when visiting a non-angular page' do
+    open_non_angular_page
+    non_angular_page_should_load
+  end
+
+  scenario 'when visiting a non-angular page that loads angular javascript' do
+    open_non_angular_page_with_angular_javascript
+    non_angular_page_should_load
+  end
+
   def open_manual_bootstrap_page
     visit '/manual.html'
   end
@@ -39,7 +49,19 @@ feature 'Waiting for angular' do
     visit '/ng-app-not-on-body.html'
   end
 
+  def open_non_angular_page
+    visit '/non-angular-page.html'
+  end
+
+  def open_non_angular_page_with_angular_javascript
+    visit '/non-angular-page-with-angular-javascript.html'
+  end
+
   def timeout_page_should_have_waited
     expect(page).to have_content('waited')
+  end
+
+  def non_angular_page_should_load
+    expect(page).to have_content('non-angular page')
   end
 end

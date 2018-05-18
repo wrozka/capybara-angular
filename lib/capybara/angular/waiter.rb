@@ -1,6 +1,8 @@
 module Capybara
   module Angular
     class Waiter
+      WAITER_JS = IO.read(File.expand_path "../waiter.js", __FILE__)
+
       attr_accessor :page
 
       def initialize(page)
@@ -8,22 +10,23 @@ module Capybara
       end
 
       def wait_until_ready
-        return unless angular_app?
-
-        setup_ready
-
+        return unless driver_supports_js?
         start = Time.now
+
         until ready?
+          inject_waiter
           timeout! if timeout?(start)
-          if page_reloaded_on_wait?
-            return unless angular_app?
-            setup_ready
-          end
           sleep(0.01)
         end
       end
 
       private
+
+      def driver_supports_js?
+        page.evaluate_script "true"
+      rescue Capybara::NotSupportedByDriverError
+        false
+      end
 
       def timeout?(start)
         Time.now - start > Capybara::Angular.default_max_wait_time
@@ -33,37 +36,13 @@ module Capybara
         raise Timeout::Error.new("timeout while waiting for angular")
       end
 
+      def inject_waiter
+        return if page.evaluate_script("window.capybaraAngularReady !== undefined")
+        page.execute_script WAITER_JS
+      end
+
       def ready?
-        page.evaluate_script("window.angularReady")
-      end
-
-      def angular_app?
-        js = '!!window.angular'
-        page.evaluate_script js
-
-      rescue Capybara::NotSupportedByDriverError
-        false
-      end
-
-      def setup_ready
-        page.execute_script <<-JS
-          var el = document.querySelector('[ng-app], [data-ng-app]') || document.querySelector('body');
-
-          window.angularReady = false;
-
-          if (angular.getTestability) {
-            angular.getTestability(el).whenStable(function() { window.angularReady = true; });
-          } else {
-            var $browser = angular.element(el).injector().get('$browser');
-
-            if ($browser.outstandingRequestCount > 0) { window.angularReady = false; }
-            $browser.notifyWhenNoOutstandingRequests(function() { window.angularReady = true; });
-          }
-        JS
-      end
-
-      def page_reloaded_on_wait?
-        page.evaluate_script("window.angularReady === undefined")
+        page.evaluate_script("window.capybaraAngularReady === true")
       end
     end
   end
