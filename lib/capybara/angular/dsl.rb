@@ -4,8 +4,8 @@ module Capybara
       include Capybara::DSL
 
       Capybara::Session::DSL_METHODS.each do |method|
-        define_method(method) do |*args, &block|
-          page.send(method, *args, &block)
+        define_method(method) do |*args, **opts, &block|
+          page.send(method, *args, **opts, &block)
         end
       end
 
