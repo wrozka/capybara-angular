@@ -1,4 +1,6 @@
 require 'rack'
+require 'puma'
+require 'rack/handler/puma'
 require 'capybara'
 require 'capybara/rspec'
 require 'capybara/poltergeist'
