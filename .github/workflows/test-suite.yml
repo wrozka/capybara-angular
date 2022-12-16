@@ -30,18 +30,10 @@ jobs:
             ruby: '3.0'
           - gemfile: rails-6.1.x
             ruby: 2.7
-          - gemfile: rails-6.1.x
-            ruby: 2.6
           - gemfile: rails-6.0.x
             ruby: 2.7
-          - gemfile: rails-6.0.x
-            ruby: 2.6
           - gemfile: rails-5.2.x
-            ruby: 2.6
-          - gemfile: rails-5.1.x
-            ruby: 2.5
-          - gemfile: rails-5.0.x
-            ruby: 2.5
+            ruby: 2.7
 
     env:
       BUNDLE_GEMFILE: ${{ github.workspace }}/gemfiles/Gemfile.${{ matrix.gemfile }}
