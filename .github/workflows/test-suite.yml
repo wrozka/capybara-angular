@@ -16,10 +16,18 @@ jobs:
       fail-fast: false
       matrix:
         gemfile: ["rails-7.0.x"]
-        ruby: [2.7]
+        ruby: [3.2]
         include:
           - gemfile: rails-7.0.x
+            ruby: '3.1'
+          - gemfile: rails-7.0.x
+            ruby: '3.0'
+          - gemfile: rails-7.0.x
             ruby: '2.7'
+          - gemfile: rails-6.1.x
+            ruby: '3.1'
+          - gemfile: rails-6.1.x
+            ruby: '3.0'
           - gemfile: rails-6.1.x
             ruby: 2.7
           - gemfile: rails-6.1.x
