@@ -1,3 +1,7 @@
+require 'simplecov'
+SimpleCov.minimum_coverage 82.7
+SimpleCov.start 'rails'
+
 require 'rack'
 require 'puma'
 require 'rack/handler/puma'
