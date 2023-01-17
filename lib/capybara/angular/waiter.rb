@@ -11,7 +11,7 @@ module Capybara
 
       def wait_until_ready
         return unless driver_supports_js?
-        start = Time.now
+        start = Time.zone.now
 
         until ready?
           inject_waiter
@@ -29,7 +29,7 @@ module Capybara
       end
 
       def timeout?(start)
-        Time.now - start > Capybara::Angular.default_max_wait_time
+        Time.zone.now - start > Capybara::Angular.default_max_wait_time
       end
 
       def timeout!
