@@ -158,11 +158,3 @@ Style/RaiseArgs:
 Style/RedundantPercentQ:
   Exclude:
     - 'capybara-angular.gemspec'
-
-# Offense count: 1
-# This cop supports unsafe autocorrection (--autocorrect-all).
-# Configuration parameters: RequireEnglish, EnforcedStyle.
-# SupportedStyles: use_perl_names, use_english_names, use_builtin_english_names
-Style/SpecialGlobalVars:
-  Exclude:
-    - 'capybara-angular.gemspec'
