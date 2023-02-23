@@ -104,21 +104,6 @@ Style/ExpandPathArguments:
     - 'capybara-angular.gemspec'
     - 'lib/capybara/angular/waiter.rb'
 
-# Offense count: 9
-# This cop supports unsafe autocorrection (--autocorrect-all).
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: always, always_true, never
-Style/FrozenStringLiteralComment:
-  Exclude:
-    - 'Gemfile'
-    - 'Rakefile'
-    - 'capybara-angular.gemspec'
-    - 'lib/capybara/angular.rb'
-    - 'lib/capybara/angular/dsl.rb'
-    - 'lib/capybara/angular/version.rb'
-    - 'lib/capybara/angular/waiter.rb'
-    - 'spec/capybara/angular_spec.rb'
-    - 'spec/spec_helper.rb'
 
 # Offense count: 1
 # This cop supports unsafe autocorrection (--autocorrect-all).
