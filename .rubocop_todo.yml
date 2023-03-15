@@ -152,11 +152,6 @@ Style/PercentLiteralDelimiters:
 Style/RaiseArgs:
   EnforcedStyle: compact
 
-# Offense count: 2
-# This cop supports safe autocorrection (--autocorrect).
-Style/RedundantPercentQ:
-  Exclude:
-    - 'capybara-angular.gemspec'
 
 # Offense count: 1
 # This cop supports unsafe autocorrection (--autocorrect-all).
