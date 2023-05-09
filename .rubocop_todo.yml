@@ -122,13 +122,6 @@ Style/FrozenStringLiteralComment:
     - 'lib/capybara/angular/waiter.rb'
     - 'spec/capybara/angular_spec.rb'
 
-# Offense count: 1
-# This cop supports unsafe autocorrection (--autocorrect-all).
-# Configuration parameters: EnforcedStyle.
-# SupportedStyles: literals, strict
-Style/MutableConstant:
-  Exclude:
-    - 'lib/capybara/angular/version.rb'
 
 # Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
