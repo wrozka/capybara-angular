@@ -44,11 +44,6 @@ Layout/EmptyLineAfterGuardClause:
   Exclude:
     - 'lib/capybara/angular/waiter.rb'
 
-# Offense count: 1
-# This cop supports safe autocorrection (--autocorrect).
-Layout/EmptyLineAfterMagicComment:
-  Exclude:
-    - 'capybara-angular.gemspec'
 
 # Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
