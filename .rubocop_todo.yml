@@ -80,11 +80,6 @@ Rails/TimeZone:
   Exclude:
     - 'lib/capybara/angular/waiter.rb'
 
-# Offense count: 1
-# This cop supports unsafe autocorrection (--autocorrect-all).
-Security/IoMethods:
-  Exclude:
-    - 'lib/capybara/angular/waiter.rb'
 
 # Offense count: 3
 # Configuration parameters: AllowedConstants.
