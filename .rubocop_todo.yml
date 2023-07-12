@@ -30,13 +30,6 @@ Gemspec/OrderedDependencies:
   Exclude:
     - 'capybara-angular.gemspec'
 
-# Offense count: 1
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: Severity, Include.
-# Include: **/*.gemspec
-Gemspec/RequireMFA:
-  Exclude:
-    - 'capybara-angular.gemspec'
 
 # Offense count: 2
 # This cop supports safe autocorrection (--autocorrect).
