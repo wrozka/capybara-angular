@@ -38,11 +38,6 @@ Gemspec/RequireMFA:
   Exclude:
     - 'capybara-angular.gemspec'
 
-# Offense count: 2
-# This cop supports safe autocorrection (--autocorrect).
-Layout/EmptyLineAfterGuardClause:
-  Exclude:
-    - 'lib/capybara/angular/waiter.rb'
 
 # Offense count: 1
 # This cop supports safe autocorrection (--autocorrect).
