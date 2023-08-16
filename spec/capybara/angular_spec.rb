@@ -15,30 +15,30 @@ Capybara.app = Rack::Directory.new('spec/public')
 Capybara.default_max_wait_time = 2
 Capybara::Angular.default_max_wait_time = 10
 
-feature 'Waiting for angular' do
+describe 'Waiting for angular' do
   include Capybara::Angular::DSL
 
-  scenario 'when manually bootstrapping an angular application' do
+  it 'when manually bootstrapping an angular application' do
     open_manual_bootstrap_page
     timeout_page_should_have_waited
   end
 
-  scenario 'when using ng-app to bootstrap an application' do
+  it 'when using ng-app to bootstrap an application' do
     open_ng_app_bootstrap_page
     timeout_page_should_have_waited
   end
 
-  scenario 'when using ng-app not on the body tag to bootstrap an application' do
+  it 'when using ng-app not on the body tag to bootstrap an application' do
     open_ng_app_not_on_body_bootstrap_page
     timeout_page_should_have_waited
   end
 
-  scenario 'when visiting a non-angular page' do
+  it 'when visiting a non-angular page' do
     open_non_angular_page
     non_angular_page_should_load
   end
 
-  scenario 'when visiting a non-angular page that loads angular javascript' do
+  it 'when visiting a non-angular page that loads angular javascript' do
     open_non_angular_page_with_angular_javascript
     non_angular_page_should_load
   end
