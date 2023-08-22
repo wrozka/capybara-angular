@@ -1,7 +1,7 @@
 module Capybara
   module Angular
     class Waiter
-      WAITER_JS = IO.read(File.expand_path "../waiter.js", __FILE__)
+      WAITER_JS = IO.read(File.expand_path 'waiter.js', __dir__)
 
       attr_accessor :page
 

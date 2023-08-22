@@ -100,12 +100,6 @@ Style/Encoding:
   Exclude:
     - 'capybara-angular.gemspec'
 
-# Offense count: 2
-# This cop supports safe autocorrection (--autocorrect).
-Style/ExpandPathArguments:
-  Exclude:
-    - 'capybara-angular.gemspec'
-    - 'lib/capybara/angular/waiter.rb'
 
 # Offense count: 8
 # This cop supports unsafe autocorrection (--autocorrect-all).
