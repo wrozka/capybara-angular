@@ -11,6 +11,7 @@ module Capybara
 
       def wait_until_ready
         return unless driver_supports_js?
+
         start = Time.now
 
         until ready?
@@ -38,6 +39,7 @@ module Capybara
 
       def inject_waiter
         return if page.evaluate_script("window.capybaraAngularReady !== undefined")
+
         page.execute_script WAITER_JS
       end
 
