@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'simplecov'
 SimpleCov.minimum_coverage 82.7
 SimpleCov.start 'rails'
