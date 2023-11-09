@@ -33,7 +33,7 @@ module Capybara
       end
 
       def timeout!
-        raise Timeout::Error.new("timeout while waiting for angular")
+        raise Timeout::Error, "timeout while waiting for angular"
       end
 
       def inject_waiter
